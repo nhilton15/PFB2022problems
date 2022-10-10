@@ -1,13 +1,489 @@
-  349  git add oops2.txt
-  351  git commit -m 'removing oops2.txt'
-  352  git push
-  353  touch never.txt
-  355  git add never.txt
-  356  git status
-  358  git reset never.txt
-  359  git status
-  360  rm never.txt
-  361  git status
-  362  man rm
-  363  man cp
-  364  history
+    1  ls
+    2  cd
+    3  cd Desktop
+    4  ls
+    5  ls -f
+    6  ls -F
+    7  cd
+    8  cd /bin/
+    9  ls
+   10  cd /bin/
+   11  ls
+   12  ls -l
+   13  ls -lt
+   14  ls -lt | head
+   15  date ; sleep 2 ; date
+   16  man sleep
+   17  cd
+   18  curl -O https:raw.githubusercontent.com/prog4biol/pfb2022/master/files/cuffdiff.txt
+   19  curl -O https://raw.githubusercontent.com/prog4biol/pfb2022/master/files/cuffdiff.txt
+   20  ls
+   21  grep Chr7 cuffdiff.txt > fav_chr_cuffdiff.txt
+   22  ls
+   23  cat cuffdiff.txt
+   24  grep Chr9 cuffdiff.txt > fav_chr_cuffdiff.txt
+   25  cat fav_chr_cuffdiff.txt
+   26  grep Chr7 cuffdiff.txt > fav_chr_cuffdiff.txt
+   27  grep Chr9 cuffdiff.txt >> fav_chr_cuffdiff.txt
+   28  cat blablabla.txt
+   29  cat blablabla.txt > errors.txt
+   30  cat errors.txt
+   31  cat fav_chr_cuffdiff.txt blablabla.file
+   32  cat fav_chr_cuffdiff.txt blablabla.file 1> out.txt 2> err.txt
+   33  cat out.txt
+   34  cat err.txt
+   35  cat fav_chr_cuffdiff.txt blablabla.file &> all_out_err.txt
+   36  cat all_out_err.txt
+   37  path
+   38  pwd
+   39  cd ..
+   40  cd ..
+   41  ls
+   42  cd
+   43  cd ..
+   44  ls
+   45  ls -F
+   46  ls -a
+   47  cd
+   48  mdir problemsets
+   49  mkdir problemsets
+   50  cd /problemsets/
+   51  cd problemsets
+   52  pwd
+   53  man wget
+   54  man curl
+   55  wget https://raw.githubusercontent.com/prog4biol/pfb2022/master/files/cuffdiff.txt
+   56  curl https://raw.githubusercontent.com/prog4biol/pfb2022/master/files/cuffdiff.txt
+   57  curl -O https://raw.githubusercontent.com/prog4biol/pfb2022/master/files/cuffdiff.txt
+   58  ls
+   59  curl -O https://raw.githubusercontent.com/prog4biol/pfb2022/master/files/sequences.nt.fa
+   60  ls
+   61  wc -l sequences.nt.fa
+   62  man head
+   63  man head
+   64  head -n 1 sequences.nt.fa
+   65  tail -n 3 sequences.nt.fa
+   66  head -n 1 sequences.nt.fa > set1answers.txt
+   67  tail -n 3 sequences.nt.fa >> set1answers.txt
+   68  cat set1answers.txt
+   69  grep '>' sequences.nt.fa
+   70  grep '>' sequences.nt.fa > | wc -l
+   71  grep '>' sequences.nt.fa | wc -l
+   72  grep '>' sequences.nt.fa | wc -l >> set1answers.txt
+   73  cat set1answers.txt
+   74  fm setanswers.txt
+   75  rm setanswers.txt
+   76  ls
+   77  mv sequences.nt.fa cancer_genes.fasta
+   78  ls
+   79  head cuffdiff.txt
+   80  head -n 3 cuffdiff.txt
+   81  man sort
+   82  head -n 1 cuffdiff.txt
+   83  head -n 21 cuffdiff.txt
+   84  head -n 2 cuffdiff.txt
+   85  sort -k 8, 8
+   86  sort -k 8
+   87  man cut
+   88  man unique
+   89  man sort
+   90  cd
+   91  cd gitrepo
+   92  cd files
+   93  ls
+   94  ls -a
+   95  cd problemsets
+   96  cd files
+   97  ls
+   98  ls -a
+   99  cd ..
+  100  cd files
+  101  ls
+  102  cd ..
+  103  cd ..
+  104  ls
+  105  ls -a
+  106  cd problemsets
+  107  ls -a
+  108  cd ..
+  109  cd .git
+  110  ls
+  111  cd hooks
+  112  ls
+  113  ls -a
+  114  ls
+  115  cd ..
+  116  cd ..
+  117  ls
+  118  ls -a
+  119  cat .gitignore
+  120  cd .gitignore
+  121  cd problemsets
+  122  ls
+  123  head -2 cuffdiff.txt | sort -n 8
+  124  man sort
+  125  man sort
+  126  man sort
+  127  grep '>' cancer_genes.fasta
+  128  sort -n 10,10 -r > sorted.cuffdiff.out
+  129  sort -n 10,10 -r cuffdiff.txt  > sorted.cuffdiff.out
+  130  sort -n 10,10 -r cuffdiff.txt > sorted.cuffdiff.out
+  131  man sort
+  132  ls
+  133  cat sorted.cuffdiff.out
+  134  sort -n 10,10 -r cuffdiff.txt > sorted.cuffdiff.out
+  135  man sort
+  136  sort -k 10,10 -r cuffdiff.txt > sorted.cuffdiff.out
+  137  man sort
+  138  man sort
+  139  sort -k 10,10 -r -n cuffdiff.txt > sorted.cuffdiff.out
+  140  head -n 4 sorted.cuffdiff.out
+  141  last -n 4 sorted.cuffdiff.out
+  142  man last
+  143  last -n 4 sorted.cuffdiff.out
+  144  last -4 sorted.cuffdiff.out
+  145  tail -n 4 sorted.cuffdiff.out
+  146  sort -k 10,10 -r -n cuffdiff.txt | head -n 100 > top100.sorted.cuffdiff.out
+  147  ls
+  148  man head
+  149  man print
+  150  man more
+  151  man sort
+  152  man cut
+  153  man column
+  154  man cut
+  155  man cut
+  156  sort -k 3,3 top100.sorted.cuffdiff.out | cut -f 1 | unique > differentially.expressed.genes.txt
+  157  sort -k 3,3 top100.sorted.cuffdiff.out | cut -f 1 | uniq > differentially.expressed.genes.txt
+  158  ls
+  159  cat differentially.expressed.genes.txt
+  160  sort -k 3,3 top100.sorted.cuffdiff.out | cut -f 3 | uniq > differentially.expressed.genes.txt
+  161  cat differentially.expressed.genes.txt
+  162  cat top100.sorted.cuffdiff.out
+  163  column top100.sorted.cuffdiff.out
+  164  ls
+  165  column cuffdiff.txt
+  166  man column
+  167  column -s ^t  cuffdiff.txt
+  168  column -s "," cuffdiff.txt
+  169  column -s ',' cuffdiff.txt
+  170  curl -O https://raw.githubusercontent.com/prog4biol/pfb2022/master/files/cuffdiff.txt
+  171  ls
+  172  column cuffdiff.txt
+  173  column -s \t  cuffdiff.txt
+  174  column -s \r  cuffdiff.txt
+  175  column -s ' ' cuffdiff.txt
+  176  column cuffdiff.txt
+  177  column -d \t cuffdiff.txt
+  178  column -s '\t'  cuffdiff.txt
+  179  column cuffdiff.txt
+  180  column -s \t cuffdiff.txt
+  181  curl -O https://raw.githubusercontent.com/prog4biol/pfb2022/master/files/cuffdiff.txt
+  182  column \t cuffdiff.txt
+  183  sort -k 10,10 | column -t cuffdiff.txt
+  184  sort -k 10,10 cuffdiff.txt | column -t
+  185  man sort
+  186  sort -k 10 cuffdiff.txt | column -t
+  187  sort -k 10 -r -n cuffdiff.txt | head -n 100 > top100.sorted.cuffdiff.out
+  188  cat top100.sorted.cuffdiff.out | column -t
+  189  cut -f 3 top100.sorted.cuffdiff.out | sort -n | uniq > differentially.expressed.genes.txt
+  190  cat differentially.expressed.genes.txt
+  191  ls
+  192  ls
+  193  wc -l differentially.expressed.genes.txt
+  194  ls
+  195  mkdir Unix1
+  196  ls
+  197  man mv
+  198  mv cuffdiff.txt Unix1
+  199  ls
+  200  mv differentially.expressed.genes.txt Unix1
+  201  mv sorted.cuffdiff.out Unix1
+  202  mv cancer_genes.fasta Unix1
+  203  mv set1answers.txt Unix1
+  204  mv top100.sorted.cuffdiff.out Unix1
+  205  ls
+  206  cd Unix1
+  207  ls
+  208  cd ..
+  209  cd ..
+  210  ls
+  211  mkdir gitrepo
+  212  cd gitrepo
+  213  echo "# PFB2022problems" > README.md
+  214  git init
+  215  git add README.md
+  216  git commit -m "just the readme"
+  217  git branch -M main
+  218  git remote add origin https://github.com/nhilton15/PFB2022problems.git
+  219  git push -u origin main
+  220  git push -u origin main
+  221  git push -u origin main
+  222  git push -u origin main
+  223  rm -r PFB2022problems
+  224  rm -r "# PFB2022problems"
+  225  ls
+  226  cd..
+  227  cd ..
+  228  cd gitrepo
+  229  ls
+  230  cd
+  231  rm -r PFB2022problems
+  232  ls
+  233  cd gitrepo
+  234  ls
+  235  ls -a
+  236  ls -a -F
+  237  git status
+  238  rm -r PFB2022problems
+  239  cd ..
+  240  rm -r PFB2022problems
+  241  rm -r "PFB2022problems"
+  242  rm -r "# PFB2022problems"
+  243  rm gitrepo
+  244  ls
+  245  rm -r gitrepo
+  246  ld
+  247  ls
+  248  rm -r gitrepo
+  249  ls
+  250  mkdir gitrepo
+  251  ls
+  252  cd gitrepo
+  253  echo "# PFB2022problems" >> README.md
+  254  git init
+  255  $ ssh-keygen -t ed25519 -C "nhilton@ucdavis.edu"
+  256  ssh-keygen -t ed25519 -C "nhilton@ucdavis.edu"
+  257  eval "$(ssh-agent -s)"
+  258  open ~/.ssh/config
+  259  touch ~/.ssh/config
+  260  vi 
+  261  cat ~/.ssh/id_ed25519.pub
+  262  git add README.md
+  263  git commit -m "just the README"
+  264  git branch -M main
+  265  git remote add origin git@github.com:nhilton15/PFB2022problems.git
+  266  git push -u origin main
+  267  cd ~/Unix1
+  268  cd ~/problemsets/Unix1
+  269  cd ..
+  270  ls
+  271  cd ..
+  272  ls
+  273  mv cuffdiff.txt ~/problemsets/Unix1
+  274  mv fav_chr_cuffdiff.txt ~/problemsets/Unix1
+  275  mv err.txt ~/problemsets/Unix1
+  276  mv errors.txt ~/problemsets/Unix1
+  277  mv out.txt ~/problemsets/Unix1
+  278  mv all_out_err.txt ~/problemsets/Unix1
+  279  ls
+  280  mv problemsets gitrepo
+  281  ls
+  282  mv gitrepo
+  283  cd gitrepo
+  284  ls
+  285  ls -a
+  286  cd problemsets
+  287  ls
+  288  mv Unix1
+  289  cd Unix1
+  290  ls
+  291  cd ..
+  292  cd ..
+  293  git status
+  294  git add problemsets
+  295  git commit -m "moving files from Unix1 problem set"
+  296  git push
+  297  git status
+  298  ls
+  299  cd problemsets
+  300  mkdir files
+  301  ls
+  302  mv /Unix1 cancer_genes.fasta files
+  303  cd Unix1
+  304  ls
+  305  mv cancer_genes.fasta ~/gitrepo/problemsets/files
+  306  mv ../files
+  307  cd ../files
+  308  ls
+  309  git add cancer_genes.fasta
+  310  commit -m 'moving cancer_genes.fasta'
+  311  git commit -m 'moving cancer_genes.fasta'
+  312  git push
+  313  git status
+  314  cd ..\Unix1
+  315  git rm cancer_genes.fasta
+  316  git commit -m 'removing cancer_genes.fasta'
+  317  git status
+  318  cd ..
+  319  cd ..
+  320  git status
+  321  git restore --staged problemsets/files/cancer_genes.fasta
+  322  git status
+  323  git pull
+  324  git status
+  325  git restore problemsets/files/cancer_genes.fasta
+  326  git status
+  327  git rm /problemsets/Unix1/cancer_genes.fasta
+  328  git rm problemsets/Unix1/cancer_genes.fasta
+  329  commit -m 'removing cancer_genes.fasta from Unix1"\nqqq
+  330  commit -m 'removing cancer_genes.fasta from Unix1'
+  331  git commit -m 'removing cancer_genes.fasta from Unix1'
+  332  git push
+  333  git status
+  334  vi ~/gitrepo/files/mysequences.txt
+  335  fg
+  336  cd files
+  337  vi mysequences.txt
+  338  vi
+  339  vi -e mysequences.txt
+  340  vi
+  341  vi
+  342  cd files
+  343  cd problemsets/files
+  344  ls
+  345  add mysequences.txt
+  346  git add mysequences.txt
+  347  git commit -m 'adding mysequences.txt'
+  348  git push
+  349  git status
+  350  mkdir fastas
+  351  cp cancer_genes.fasta fastas
+  352  ls
+  353  rm cancer_genes.fasta
+  354  la
+  355  ls
+  356  cd fastas
+  357  ls
+  358  cd ..
+  359  git add /fastas/cancer_genes.fasta
+  360  git add ~/gitrepo/problemsets/files/fastas/cancer_genes.fasta
+  361  git rm ~/gitrepo/problemsets/files/cancer_genes.fasta
+  362  git commit -m 'moving cancer_genes.fasta'
+  363  git push
+  364  ls
+  365  vi oops.txt
+  366  ls
+  367  git add oops.txt
+  368  git commit "adding oops.txt"
+  369  git commit 'adding oops.txt'
+  370  git commit -m 'adding oops.txt'
+  371  git push
+  372  git rm oops.txt
+  373  git commit -m 'removing oops'
+  374  git push
+  375  vi oops2.txt
+  376  add oops2.txt
+  377  git add oops2.txt
+  378  git commit -m 'adding oops2.txt'
+  379  git push
+  380  rm oops2
+  381  rm oops2.txt
+  382  ls
+  383  git add oops2.txt
+  384  git committ -m 'removing oops2.txt'
+  385  git commit -m 'removing oops2.txt'
+  386  git push
+  387  touch never.txt
+  388  ls
+  389  git add never.txt
+  390  git status
+  391  fit reset never.txt
+  392  git reset never.txt
+  393  git status
+  394  rm never.txt
+  395  git status
+  396  man rm
+  397  man cp
+  398  history
+  399  history > unixBasics.history.txt
+  400  vi
+  401  man history
+  402  git add unixBasics.history.txt
+  403  git commit -m 'adding history'
+  404  git push
+  405  git status
+  406  cd
+  407  ls
+  408  mkdir coursegitrepo
+  409  ls
+  410  cd coursegitrepo
+  411  git clone git@github.com:prog4biol/pfb2022.git
+  412  ls
+  413  cd pfb2022
+  414  ls
+  415  git status
+  416  cd ~/gitrepo
+  417  git status
+  418  ls -a
+  419  cd .git
+  420  ls -a
+  421  cd
+  422  la
+  423  ls
+  424  cd coursegitrepo
+  425  ls
+  426  cd pfb2022
+  427  cd setup
+  428  ls
+  429  ls -F
+  430  man cp
+  431  cp -i pre-commit ~/gitrepo/.git/hooks
+  432  cd ..
+  433  cd ..
+  434  cd ..
+  435  cd gitrepo
+  436  git status
+  437  cd problemsets
+  438  touch test.txt
+  439  ls
+  440  git add test.txt
+  441  git commit 'testing'
+  442  git commit -m 'testing'
+  443  git push
+  444  rm test.txt
+  445  git add text.txt
+  446  git add test.txt
+  447  git commit -m 'testing removal'
+  448  git push
+  449  git status
+  450  git status
+  451  cd ../.gitignore
+  452  cd ..
+  453  add .gitignore
+  454  git add .gitignore
+  455  cd /gitrepo
+  456  cd
+  457  ls
+  458  cd gitrepo
+  459  ls
+  460  git status
+  461  git commit -m '.gitignore was asking to be added'
+  462  git push
+  463  git status
+  464  ls -a
+  465  rm .gitignore
+  466  git add .gitignore
+  467  git commit -m 'deleted .gitignore'
+  468  git push
+  469  git status
+  470  git remove .gitignore
+  471  git rm .gitignore
+  472  ls
+  473  ls -a
+  474  vi
+  475  git status
+  476  cd
+  477  ls
+  478  man history
+  479  less man history
+  480  man less history
+  481  man history
+  482  pwd
+  483  history
+  484  history 0
+  485  cd /gitrepo/problemsets/files
+  486  cd gitrepo
+  487  cd problemsets
+  488  ls
+  489  cd files
