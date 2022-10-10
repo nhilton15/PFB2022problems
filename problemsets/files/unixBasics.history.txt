@@ -1,0 +1,13 @@
+  349  git add oops2.txt
+  351  git commit -m 'removing oops2.txt'
+  352  git push
+  353  touch never.txt
+  355  git add never.txt
+  356  git status
+  358  git reset never.txt
+  359  git status
+  360  rm never.txt
+  361  git status
+  362  man rm
+  363  man cp
+  364  history
