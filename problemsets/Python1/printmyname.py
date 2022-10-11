@@ -15,3 +15,4 @@ print('My name: '+myname+'\n'+'My favorite color: '+favcolor+'\n'+'My favorite a
 #print('My favorite color: ' + favcolor)
 #print('My favorite activity:' , favactivity)
 #print('My favorite animal:' , favanimal)
+
