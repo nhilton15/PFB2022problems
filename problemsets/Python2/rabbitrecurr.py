@@ -20,7 +20,6 @@ for i in range(0,months):
     newadults = babies
     babies = production * adults
     adults = adults + newadults
-    i += 1
 
 #give answer
 print('Number of babies:',end=' ')
