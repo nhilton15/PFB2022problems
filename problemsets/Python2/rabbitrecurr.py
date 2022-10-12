@@ -16,7 +16,7 @@ babies = int(babies)
 adults = int(adults)
 
 #math to calculate production
-for i in range(0,months):
+for i in range(0,months-1):
     newadults = babies
     babies = production * adults
     adults = adults + newadults
