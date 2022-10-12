@@ -5,6 +5,5 @@ dnalist = ['ATGCCCGGCCCGGC','GCGTGCTAGCAATACGATAAACCGG', 'ATATATATCGAT','ATGGGCC
 #for seq in dnalist:
 #    print(len(seq),seq,sep='\t')
 
-dnatup = (
-dnanested = [tup for tup in dnatup]
-
+dnanested = [(dnalist.index(seq)+1,len(seq),seq) for seq in dnalist]
+print(dnanested)
