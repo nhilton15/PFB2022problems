@@ -14,18 +14,20 @@ altseq = sequencelist
 
 #create a dictionary from list of sequences
 seqdict = {}
-
-for i in range(0,seqnum-1):
-    positionS = sequencelist.find('>')
-    positionE = 0
-    for j in range(0, 1):
-        positionE = altseq.find('>', positionE + 1)
-    seqdict[sequencelist[positionS+1:positionS+14]] = sequencelist[positionS+14:positionE] #appending sequences to keys
-    altseq.replace('>','Z',1)
+for i in range(0,seqnum):
+    positionS = altseq.find('>')
+    altseq = altseq.replace('>','Z',1)
+    positionE = altseq.find('>')
+    if i == seqnum-1:
+        positionE = len(altseq)+1
+    seqdict[sequencelist[positionS+1:positionS+14]] = sequencelist[positionS+14:positionE] #addingelements to keys in dictionary, since seqdict is an empty dictionary, keys will be created
 
 print(seqdict)
-#evaluate GC content in dictionary
 
+#evaluate GC content in dictionary
+gcdict = {}
+for i in range(0,seqnum):
+    gcdict[seqdict[i]] = 
 
 #determine highest content
 
