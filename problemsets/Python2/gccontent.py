@@ -22,14 +22,19 @@ for i in range(0,seqnum):
         positionE = len(altseq)+1
     seqdict[sequencelist[positionS+1:positionS+14]] = sequencelist[positionS+14:positionE] #addingelements to keys in dictionary, since seqdict is an empty dictionary, keys will be created
 
-print(seqdict)
-
-#evaluate GC content in dictionary
+#evaluate GC content in seqdict and store it in its own dictionary (with the same key)
 gcdict = {}
-for i in range(0,seqnum):
-    gcdict[seqdict[i]] = 
+for i in seqdict:
+    gccount = seqdict[i].count('G') + seqdict[i].count('C')
+    gcpercent = gccount/len(seqdict[i]) * 100
+    gcdict[i] = gcpercent
 
 #determine highest content
-
+highgc = 0
+for i in gcdict:
+    if gcdict[i] > highgc:
+        highname = i
+        highgc = gcdict[i]
 
 #display highest sequence name and content
+print(f'{highname}\n{highgc:.6f}')
