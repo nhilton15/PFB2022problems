@@ -1,0 +1,4 @@
+lists strings and tuples are considered sequences in Python
+the length of the provided string is 842, this string is a Python sequence (as long as it is written in quotes)
+in DNA, there are 167 As, 187 Ts, 218 Gs, and 270 Cs
+
