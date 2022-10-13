@@ -16,6 +16,8 @@ for split in splitseq:
     metalist.append([len(split),split,startS,endS])
     startS = endS + 1
 
-metalist.sort(reverse=True,key=[item[0] for item in metalist])
-for sublist in metalist print(f'Fragment {sublist[1]} goes from position {sublist[2]} to {sublist[3]}, and is {sublist[0]}bp long.')
+metalist.sort(reverse=True) #seems to sort based on first item from sublist, which is the length
+
+for sublist in metalist:
+     print(f'Fragment {sublist[1]} goes from position {sublist[2]} to {sublist[3]}, and is {sublist[0]}bp long.')
 
