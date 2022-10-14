@@ -30,7 +30,35 @@ with open(filename,'r') as openfile:
 codondict = {}
 
 for gene in seqdict:
-    if gene not in codondict:
-        codondict[gene] = {}
-    #split string every three char
+    codondict[gene] = []
+    for frame in range(6):
+        codondict[gene].append([])
+        seqret = seqdict[gene]
+        if frame >= 3:
+            seqret = seqret[::-1]
+            seqret = seqret.replace('A','B')
+            seqret = seqret.replace('T','A')
+            seqret = seqret.replace('B','T')
+            seqret = seqret.replace('G','B')
+            seqret = seqret.replace('C','G')
+            seqret = seqret.replace('B','C')
+        spacer = 1 + frame
+        codon = ''
+        for nt in seqret:
+            codon = codon + nt
+            if spacer%3 == 0:
+                codondict[gene][frame].append(codon)
+                codon = ''
+            spacer +=1
+        codondict[gene][frame].append(codon)
+
+with open('Python_08.codons-6frames.nt','w') as codonfile:
+    for gene in codondict:
+        counter = 1
+        for frames in codondict[gene]:
+            codonfile.write(f'{gene} Frame{counter}\n')
+            counter +=1
+            for codonlist in frames:
+                codonfile.write(codonlist+' ')
+            codonfile.write('\n')
 
