@@ -52,13 +52,76 @@ for gene in seqdict:
             spacer +=1
         codondict[gene][frame].append(codon)
 
-with open('Python_08.codons-6frames.nt','w') as codonfile:
-    for gene in codondict:
-        counter = 1
-        for frames in codondict[gene]:
-            codonfile.write(f'{gene} Frame{counter}\n')
-            counter +=1
-            for codonlist in frames:
-                codonfile.write(codonlist+' ')
-            codonfile.write('\n')
+#with open('Python_08.codons-6frames.nt','w') as codonfile:
+#    for gene in codondict:
+#        counter = 1
+#        for frames in codondict[gene]:
+#            codonfile.write(f'{gene} Frame{counter}\n')
+#            counter +=1
+#            for codonlist in frames:
+#                codonfile.write(codonlist)
+#            codonfile.write('\n')
+
+translation_table = { 'GCT':'A', 'GCC':'A', 'GCA':'A', 'GCG':'A', 'CGT':'R', 'CGC':'R', 'CGA':'R', 'CGG':'R', 'AGA':'R', 'AGG':'R', 'AAT':'N', 'AAC':'N', 'GAT':'D', 'GAC':'D', 'TGT':'C', 'TGC':'C', 'CAA':'Q', 'CAG':'Q', 'GAA':'E', 'GAG':'E', 'GGT':'G', 'GGC':'G', 'GGA':'G', 'GGG':'G', 'CAT':'H', 'CAC':'H', 'ATT':'I', 'ATC':'I', 'ATA':'I', 'TTA':'L', 'TTG':'L', 'CTT':'L', 'CTC':'L', 'CTA':'L', 'CTG':'L', 'AAA':'K', 'AAG':'K', 'ATG':'M', 'TTT':'F', 'TTC':'F', 'CCT':'P', 'CCC':'P', 'CCA':'P', 'CCG':'P', 'TCT':'S', 'TCC':'S', 'TCA':'S', 'TCG':'S', 'AGT':'S', 'AGC':'S', 'ACT':'T', 'ACC':'T', 'ACA':'T', 'ACG':'T', 'TGG':'W', 'TAT':'Y', 'TAC':'Y', 'GTT':'V', 'GTC':'V', 'GTA':'V', 'GTG':'V', 'TAA':'*', 'TGA':'*', 'TAG':'*' }
+
+transldict = {}
+
+for gene in codondict:
+    transldict[gene] = []
+    for frame in range(6):
+        transldict[gene].append([])
+        for codon in range(len(codondict[gene][frame])):
+            if len(codondict[gene][frame][codon]) == 3:
+                transldict[gene][frame].append(translation_table[codondict[gene][frame][codon]])
+
+#with open('Python_08.translated.aa','w') as translatedfile:
+#    for gene in transldict:
+#        counter = 1
+#        for frames in transldict[gene]:
+#            translatedfile.write(f'{gene} Frame{counter}\n')
+#            counter +=1
+#            for aalist in frames:
+#                translatedfile.write(aalist)
+#            translatedfile.write('\n')
+
+peptdict = {}
+
+for gene in transldict:
+    peptdict[gene] = []
+    for frame in range(6):
+        peptide = ''
+        for residue in range(len(transldict[gene][frame])):
+            peptide = peptide + transldict[gene][frame][residue]
+        peptdict[gene].append(peptide)
+
+longpepdict = {}
+
+for gene in peptdict:
+    longpepdict[gene] = []
+    for frame in range(6):
+        longpepdict[gene].append(' ')
+        for orf in re.finditer(r'M\w*\*', peptdict[gene][frame]):
+            if (orf.end(0)-orf.start(0)) > len(longpepdict[gene][frame]):
+                longpepdict[gene][frame] = orf.group(0)
+
+#with open('Python_08.translated-longest.aa','w') as longestwrite:
+#    for gene in longpepdict:
+#        counter = 1
+#        for frames in longpepdict[gene]:
+#            longestwrite.write(f'{gene} Frame{counter}\n')
+#            counter +=1
+#            longestwrite.write(frames+'\n')
+
+creamofthecrop = {}
+
+for gene in longpepdict:
+    creamofthecrop[gene] = ''
+    for frame in range(6):
+        if len(longpepdict[gene][frame]) > len(creamofthecrop[gene]):
+            creamofthecrop[gene] = longpepdict[gene][frame]
+
+with open('Python_08.orf-longest.nt','w') as creamwrite:
+    for gene in creamofthecrop:
+        creamwrite.write(f'{gene}\n{creamofthecrop[gene]}\n')
+
 
