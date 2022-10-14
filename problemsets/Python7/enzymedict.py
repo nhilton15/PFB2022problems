@@ -22,12 +22,21 @@ with open('bionet.txt') as bioread:
 enzname = sys.argv[1]
 seqtocut = sys.argv[2]
 
+basedict = {'R':'[AG]','Y':'[CT]','S':'[GC]','W':'[AT]','K':'[GT]','M':'[AC]','B':'[CGT]','D':'[AGT]','H':'[ACT]','V':'[ACG]','N':'[ACTG]'}
+
 if enzname in enzdict:
-    seqclean = enzdict[enzname].replace('^','')
+    cutsearch = enzdict[enzname]
+    if re.search(r'\^',cutsearch):
+        cutsite = cutsearch.find('^')
+    for base in range(len(cutsearch)):
+        if cutsearch[base] in basedict:
+           cutsearch = cutsearch.replace(cutsearch[base],basedict[cutsearch[base]])
+    seqclean = cutsearch.replace('^','')
     if re.search(seqclean,seqtocut):
-        seqout = re.sub(seqclean,enzdict[enzname],seqtocut)
-        print(seqout)
-        seqsplit = seqout.split('^')
+        for found in re.finditer(seqclean,seqtocut):
+            seqtocut = seqtocut[:found.start(0)+cutsite]+'^'+seqtocut[found.start(0)+cutsite:]
+        print(seqtocut)
+        seqsplit = seqtocut.split('^')
         print(len(seqsplit), 'fragments')
         print(seqsplit)
         seqsplit = sorted(seqsplit, key=len, reverse = True)
