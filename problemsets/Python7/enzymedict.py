@@ -24,10 +24,13 @@ seqtocut = sys.argv[2]
 
 if enzname in enzdict:
     seqclean = enzdict[enzname].replace('^','')
-    if re.match(seqclean,seqtocut):
+    if re.search(seqclean,seqtocut):
         seqout = re.sub(seqclean,enzdict[enzname],seqtocut)
         print(seqout)
         seqsplit = seqout.split('^')
+        print(len(seqsplit), 'fragments')
         print(seqsplit)
-        seqsplit = seqsplit.sort(key=len)
+        seqsplit = sorted(seqsplit, key=len, reverse = True)
         print(seqsplit)
+    else:
+        print('No cut sites')
