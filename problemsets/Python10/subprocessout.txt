@@ -1,0 +1,7 @@
+total 32
+-rw-r--r--  1 student  staff  4001 Oct 15 11:19 Python_08.fasta
+drwxr-xr-x  3 student  staff    96 Oct 15 11:50 __pycache__/
+-rw-r--r--  1 student  staff   445 Oct 15 11:41 dnamanip.py
+-rwxr-xr-x  1 student  staff   770 Oct 15 11:32 nucchopper60.py*
+-rw-r--r--  1 student  staff     0 Oct 15 11:53 subprocessout.txt
+-rwxr-xr-x  1 student  staff   187 Oct 15 11:53 subprocessscript.py*
